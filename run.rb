@@ -3,4 +3,4 @@
 
 require_relative 'lib/log_parser'
 
-LogParser::ReportsBuilder.new.call
+LogParser::ReportsBuilder.new(option: ARGV[0]).call
