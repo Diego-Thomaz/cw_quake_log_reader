@@ -12,3 +12,10 @@ Style/StringLiteralsInInterpolation:
 
 Layout/LineLength:
   Max: 120
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+Metrics/BlockLength: # testing blocks usually have more than 25 lines
+  Exclude:
+    - spec/**/*

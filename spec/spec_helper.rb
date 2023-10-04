@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'log_parser'
 require 'simplecov'
 SimpleCov.start
 

@@ -4,9 +4,9 @@ module LogParser
   class Player
     attr_reader :name, :kills
 
-    def initialize(name:)
+    def initialize(name:, kills: 0)
       @name = name
-      @kills = 0
+      @kills = kills
     end
 
     def add_kill(amount = 1)

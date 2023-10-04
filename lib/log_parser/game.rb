@@ -2,7 +2,7 @@
 
 module LogParser
   class Game
-    attr_reader :players
+    attr_reader :players, :total_kills, :kills, :death_reasons
 
     DEATH_REASONS = %w[MOD_UNKNOWN
                        MOD_SHOTGUN
@@ -65,7 +65,7 @@ module LogParser
 
     private
 
-    attr_reader :id, :total_kills, :kills, :death_reasons
+    attr_reader :id
 
     def build_kills
       sorted_game_players.each_with_object({}) do |player, obj|
