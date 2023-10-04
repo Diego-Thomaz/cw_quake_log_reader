@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'parse_regex'
+require_relative 'log_regex'
 
 module LogParser
   class Parser
-    include LogParser::ParseRegex
+    include LogParser::LogRegex
 
     DEFAULT_LOG_FILE_PATH = 'logs/quake.log'
     WORLD_KILL = '<world>'
@@ -17,7 +17,6 @@ module LogParser
 
     def call
       read_log
-      grouped_matches
     end
 
     private
@@ -30,6 +29,7 @@ module LogParser
       end
 
       store_game_stats
+      grouped_matches
     end
 
     def parse_line(line)
@@ -62,13 +62,15 @@ module LogParser
 
     def calculate_kill(line)
       game.add_kill
+      game.update_death_reason_counter(reason: death_reason(line))
+
       assassin = killer(line)
-      victim = victim(line)
 
       if assassin == WORLD_KILL
-        game.players[victim].add_kill(-1)
+        victim = victim(line)
+        game.players[victim].remove_kill
       else
-        game.players[assassin].add_kill(1)
+        game.players[assassin].add_kill
       end
     end
   end

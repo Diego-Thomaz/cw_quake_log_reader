@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
+require_relative 'base'
+
 module LogParser
   module Reports
-    class PlayerRank
-      def initialize(matches:)
-        @matches = matches
-      end
-
+    class PlayerRank < Base
       def call
         pretty_print_player_rank
       end
@@ -16,10 +14,7 @@ module LogParser
       attr_reader :matches
 
       def pretty_print_player_rank
-        p '*' * 100
-        p 'PLAYER RANK - ALL MATCHES'
-        p '*' * 100
-
+        print_header(report_title:)
         pp generate_player_rank.sort_by { |_key, value| -value }.to_h
       end
 
@@ -30,6 +25,10 @@ module LogParser
             rank[key] += value
           end
         end
+      end
+
+      def report_title
+        'PLAYER RANK - ALL MATCHES'
       end
     end
   end

@@ -9,8 +9,12 @@ module LogParser
       @kills = 0
     end
 
-    def add_kill(amount)
+    def add_kill(amount = 1)
       @kills += amount
+    end
+
+    def remove_kill(amount = 1)
+      @kills -= amount
     end
   end
 end
