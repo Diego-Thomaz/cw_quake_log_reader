@@ -43,7 +43,7 @@ RSpec.describe LogParser::Reports::GroupedInformationPerMatch do
     ]
   end
 
-  let(:expected_response)  { matches }
+  let(:expected_response) { matches }
 
   before do
     allow($stdout).to receive(:puts)

@@ -6,7 +6,7 @@ require_relative 'reports/player_rank'
 
 module LogParser
   class ReportsBuilder
-    VALID_OPTIONS = ['gi', 'pr', 'dr'].freeze
+    VALID_OPTIONS = %w[gi pr dr].freeze
 
     def initialize(option: nil)
       @option = option
@@ -29,7 +29,7 @@ module LogParser
     def validate_option!
       return if VALID_OPTIONS.include?(option) || option.nil?
 
-      abort "Invalid option. The valid options are: #{VALID_OPTIONS.join(', ')}"
+      abort "Invalid option. The valid options are: #{VALID_OPTIONS.join(", ")}"
     end
 
     def grouped_information_per_match
@@ -69,7 +69,7 @@ module LogParser
     def symbolized_option
       return nil if option.nil? || option.empty?
 
-      option.scan(/[[:alpha:]]/).join('').to_sym
+      option.scan(/[[:alpha:]]/).join.to_sym
     end
   end
 end

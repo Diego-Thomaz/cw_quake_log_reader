@@ -46,20 +46,20 @@ RSpec.describe LogParser::Reports::DeathReasonsPerMatch do
   let(:expected_response) do
     [
       {
-        "game_1" => {
-          "death_reasons" => {
-            "MOD_TRIGGER_HURT" => 7,
-            "MOD_ROCKET_SPLASH" => 3,
-            "MOD_FALLING" => 1
+        'game_1' => {
+          'death_reasons' => {
+            'MOD_TRIGGER_HURT' => 7,
+            'MOD_ROCKET_SPLASH' => 3,
+            'MOD_FALLING' => 1
           }
         }
       },
       {
-        "game_2" => {
-          "death_reasons" => {
-            "MOD_TRIGGER_HURT" => 2,
-            "MOD_ROCKET" => 1,
-            "MOD_FALLING" => 1
+        'game_2' => {
+          'death_reasons' => {
+            'MOD_TRIGGER_HURT' => 2,
+            'MOD_ROCKET' => 1,
+            'MOD_FALLING' => 1
           }
         }
       }

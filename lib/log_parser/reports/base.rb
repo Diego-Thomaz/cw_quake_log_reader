@@ -9,9 +9,9 @@ module LogParser
 
       def print_header(report_title:)
         puts '*' * 100
-        puts '*' + (' ' * 98) + '*'
+        puts "*#{" " * 98}*"
         puts report_title.center(100)
-        puts '*' + (' ' * 98) + '*'
+        puts "*#{" " * 98}*"
         puts '*' * 100
       end
     end
